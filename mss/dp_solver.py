@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from typing import Sequence
 import logging
 
-from .models import MDSSInstance, Vector
+from .models import MSSInstance, Vector
 
 
 @dataclass(frozen=True)
@@ -22,7 +22,7 @@ class DPSolver:
     def __init__(self) -> None:
         pass
 
-    def solve(self, instance: MDSSInstance) -> SolverResult:
+    def solve(self, instance: MSSInstance) -> SolverResult:
         start = time.perf_counter()
         is_yes, states, witness = self._run_dp(instance.vectors, instance.target)
         return SolverResult(

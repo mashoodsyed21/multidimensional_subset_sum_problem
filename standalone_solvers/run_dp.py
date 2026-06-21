@@ -1,11 +1,11 @@
 import sys
 from pathlib import Path
 
-# Add parent directory to path to allow importing mdss
+# Add parent directory to path to allow importing mss
 sys.path.append(str(Path(__file__).parent.parent))
 
 from parse_utils import parse_instance_file
-from mdss.dp_solver import DPSolver
+from mss.dp_solver import DPSolver
 
 def main():
     if len(sys.argv) < 2:

@@ -37,7 +37,7 @@ class PhaseRow:
 
 
 @dataclass(frozen=True)
-class MDSSInstance:
+class MSSInstance:
     vectors: tuple[Vector, ...]
     target: Vector
     n: int

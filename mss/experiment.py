@@ -12,13 +12,13 @@ except ImportError:
     has_tqdm = False
 
 from .generator import InstanceGenerator
-from .models import ExperimentConfig, MDSSInstance, PhaseRow
+from .models import ExperimentConfig, MSSInstance, PhaseRow
 from .dp_solver import DPSolver, SolverResult
 
 
 @runtime_checkable
 class Solver(Protocol):
-    def solve(self, instance: MDSSInstance) -> SolverResult: ...
+    def solve(self, instance: MSSInstance) -> SolverResult: ...
 
 
 class ExperimentRunner:
@@ -54,7 +54,7 @@ class ExperimentRunner:
 
         rows: list[PhaseRow] = []
         
-        # tqdm Outer-Loop (falls verfügbar und verbose)
+        # tqdm Outer-Loop (falls verfÃ¼gbar und verbose)
         iterable = n_values
         if self.verbose and has_tqdm:
             iterable = tqdm(n_values, desc=f"  Progress (d={cfg.d}, m={cfg.m})", unit="step", leave=False, colour="green")

@@ -1,13 +1,13 @@
-# Multidimensional Subset Sum Problem (MDSS)
+# Multidimensional Subset Sum Problem (MSS)
 
-This repository provides a Python-based framework to solve the **Multidimensional Subset Sum Problem (MDSS)**. Developed as part of a bachelor's thesis, it enables systematic benchmarks, phase-transition limit testing, and comparative analysis of different algorithmic approaches—specifically **Exact Dynamic Programming** versus **Integer Linear Programming (ILP)**.
+This repository provides a Python-based framework to solve the **Multidimensional Subset Sum Problem (MSS)**. Developed as part of a bachelor's thesis, it enables systematic benchmarks, phase-transition limit testing, and comparative analysis of different algorithmic approachesâ€”specifically **Exact Dynamic Programming** versus **Integer Linear Programming (ILP)**.
 
 ## What is the Multidimensional Subset Sum Problem?
-The MDSS is a multi-dimensional generalization of the classic Subset Sum (and Knapsack) problem. Given a set of $n$ vectors in a $d$-dimensional integer space $\mathbb{Z}^d$ and a target vector $t \in \mathbb{Z}^d$, the goal is to find a subset of vectors that sums up exactly to the target $t$.
+The MSS is a multi-dimensional generalization of the classic Subset Sum (and Knapsack) problem. Given a set of $n$ vectors in a $d$-dimensional integer space $\mathbb{Z}^d$ and a target vector $t \in \mathbb{Z}^d$, the goal is to find a subset of vectors that sums up exactly to the target $t$.
 
 ## Project Structure
 
-- `mdss/`: The core library package. Contains data models, the instance generator, the DP solver, the ILP solver, and utilities for limit testing and exporting results.
+- `mss/`: The core library package. Contains data models, the instance generator, the DP solver, the ILP solver, and utilities for limit testing and exporting results.
 - `config.py`: Central configuration file. Allows you to define hyperparameters, trials per configuration, and sweep ranges ($d$, $n$, seed, bounds) for the automated benchmarks.
 - `run_experiments.py`: The main entry point to run systematic benchmarks and limit-testing sweeps based on `config.py`.
 - `standalone_solvers/`: Contains CLI utilities to run solvers on specific, manually-defined instance text files instead of generated ones.

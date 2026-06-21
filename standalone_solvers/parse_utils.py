@@ -1,12 +1,12 @@
 import sys
 from pathlib import Path
 
-# Add parent directory to path to allow importing mdss
+# Add parent directory to path to allow importing mss
 sys.path.append(str(Path(__file__).parent.parent))
 
-from mdss.models import MDSSInstance
+from mss.models import MSSInstance
 
-def parse_instance_file(filepath: str) -> MDSSInstance:
+def parse_instance_file(filepath: str) -> MSSInstance:
     with open(filepath, 'r') as f:
         lines = [line.strip() for line in f if line.strip() and not line.startswith('#')]
         
@@ -29,4 +29,4 @@ def parse_instance_file(filepath: str) -> MDSSInstance:
         if len(v) != d:
             raise ValueError(f"Target vector has dimension {d}, but found vector {v} with dimension {len(v)}.")
             
-    return MDSSInstance(vectors=vectors, target=target, n=len(vectors), d=d)
+    return MSSInstance(vectors=vectors, target=target, n=len(vectors), d=d)

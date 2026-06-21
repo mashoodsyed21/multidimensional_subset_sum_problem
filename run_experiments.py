@@ -1,18 +1,18 @@
 """
 DynamicProgrammingSolver.py
 ===========================
-Entry point for MDSS phase-transition experiments.
+Entry point for MSS phase-transition experiments.
 Reads all test parameters from `config.py`.
 """
 from __future__ import annotations
 
 import config
-from mdss import DPSolver, ILPSolver, LimitTester, ResultExporter
+from mss import DPSolver, ILPSolver, LimitTester, ResultExporter
 
 
 def main() -> None:
     print("=" * 84)
-    print("MDSS  -  DP vs ILP  |  Phase-Transition Limit Testing")
+    print("MSS  -  DP vs ILP  |  Phase-Transition Limit Testing")
     print("=" * 84)
 
     exporter = ResultExporter(out_dir="results")

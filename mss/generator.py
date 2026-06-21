@@ -2,12 +2,12 @@ from __future__ import annotations
 
 import random
 
-from .models import MDSSInstance, Vector
+from .models import MSSInstance, Vector
 
 
 class InstanceGenerator:
 
-    def generate(self, n: int, d: int, m: int, rng: random.Random, vec_ub_divisor: int = 4) -> MDSSInstance:
+    def generate(self, n: int, d: int, m: int, rng: random.Random, vec_ub_divisor: int = 4) -> MSSInstance:
         if n <= 0:
             raise ValueError(f"n must be > 0, got {n}")
         if d <= 0:
@@ -25,7 +25,7 @@ class InstanceGenerator:
 
         target: Vector = tuple(rng.randint(m, 2 * m) for _ in range(d))
 
-        return MDSSInstance(vectors=vectors, target=target, n=n, d=d)
+        return MSSInstance(vectors=vectors, target=target, n=n, d=d)
 
     def __repr__(self) -> str:
         return "InstanceGenerator()"

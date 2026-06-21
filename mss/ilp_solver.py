@@ -4,13 +4,13 @@ import time
 
 import pulp
 
-from .models import MDSSInstance
+from .models import MSSInstance
 from .dp_solver import SolverResult
 
 
 class ILPSolver:
     """
-    Feasibility ILP for MDSS via PuLP / CBC.
+    Feasibility ILP for MSS via PuLP / CBC.
 
 
     """
@@ -20,13 +20,13 @@ class ILPSolver:
             raise ValueError(f"time_limit_s must be > 0, got {time_limit_s}")
         self.time_limit_s = time_limit_s
 
-    def solve(self, instance: MDSSInstance) -> SolverResult:
+    def solve(self, instance: MSSInstance) -> SolverResult:
         start   = time.perf_counter()
         vectors = instance.vectors
         target  = instance.target
         n, d    = instance.n, instance.d
 
-        prob = pulp.LpProblem("MDSS_Feasibility", pulp.LpMinimize)
+        prob = pulp.LpProblem("MSS_Feasibility", pulp.LpMinimize)
         x    = [pulp.LpVariable(f"x_{i}", cat=pulp.LpBinary) for i in range(n)]
         prob += 0
 
@@ -47,7 +47,7 @@ class ILPSolver:
         return SolverResult(is_yes_instance=False, states_explored=-1,
                             runtime_s=elapsed, witness_indices=None)
 
-    def verify_witness(self, instance: MDSSInstance, witness: tuple[int, ...]) -> bool:
+    def verify_witness(self, instance: MSSInstance, witness: tuple[int, ...]) -> bool:
         """Check that the witness subset sums exactly to the target."""
         partial = [0] * instance.d
         for idx in witness:
